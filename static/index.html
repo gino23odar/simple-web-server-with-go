@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Local Camera + Mic Preview</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Roboto, "Segoe UI", sans-serif;
+        margin: 24px;
+      }
+      video,
+      audio {
+        display: block;
+        margin-top: 12px;
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+      }
+      #status {
+        margin-top: 12px;
+        color: #b33333;
+      }
+      button {
+        padding: 8px 12px;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Camera & Microphone Preview</h1>
+    <p>
+      Click <strong>Start</strong> to request camera + mic permissions and
+      preview your local stream.
+    </p>
+
+    <button id="startBtn">Start</button>
+    <button id="stopBtn" disabled>Stop</button>
+
+    <!-- Video preview (muted to avoid audio feedback). playsinline helps on mobile browsers. -->
+    <video id="localVideo" autoplay playsinline muted></video>
+
+    <!-- Optional audio element if you want to hear mic playback (user gesture may be required). -->
+    <audio id="localAudio" controls></audio>
+
+    <div id="status" aria-live="polite"></div>
+
+    <script src="client.js"></script>
+  </body>
+</html>
